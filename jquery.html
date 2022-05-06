@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#cpwd').keyup(function(){   
+              if($(this).val() != $('#pwd').val().substr(0,$(this).val().length))
+              {
+                 $("#divInfo").text("Passwords didn't match");
+                 $("#divInfo").css("color","red");
+              }
+            });
+            $('#Ceven').click(function(){
+                $("tr:even").css("background-color", "dodgerblue");
+            });
+            $('#Codd').click(function(){
+                $("tr:odd").css("background-color", "lightgray");
+            });
+            $('#sub-button').click(function() {
+                if($('#fname').val() == "") {
+                      $('#fname').css("background-color", "red"); 
+                      $('#fname').focus();
+                    }
+                if($('#lname').val() == "") {
+                      $('#lname').css("background-color", "red");  
+                      $('#lname').focus();  
+                    }
+                if( $('#fname').val() == "" ||  $('#lname').val() == ""){
+                   alert("field is empty");
+                   
+                 }
+                 
+            });
+            $('#button-div').on('click','.plus-button',(function(){
+               $(".scholar-class").append('<tr><td><input type="text" placeholder="Enter class"></td><td><input type="text" placeholder="Enter board"></td><td><input type="text" placeholder="Enter marks"></td><td><input type="text" placeholder="Enter division"></td><td><button class="plus-button">+</button></td><td><button class="min-button" )">-</button></td></tr>');
+            }));
+            
+            $('#button-div').on('click','.min-button',function(){
+                $(this).closest('tr').remove();
+            });
+             
+          });
+        
+    </script>
+</head>
+<body>
+    <div>
+        <form>
+            Password: <br>
+            <input type="text" id="pwd"> <br>
+            Confirm Password: <br>
+            <input type="text" id="cpwd"> <br>
+            <div id="divInfo" style="width: 184px; height: 20px; color: red ;"></div>
+            <button>Submit</button>
+        </form>
+    </div>
+    <br>
+<div>
+    <button id="Ceven">Color Even Rows</button>
+    <button id="Codd">Color Odd Rows</button>   <br>
+    <table>
+        <tr><th>Company</th>
+        <th>Contact</th>
+        <th>Country</th></tr>
+
+        <tr><td>Ernst Trading</td>
+        <td>Ronald Mendel</td>
+        <td>Australia</td></tr>
+
+        <tr><td>Ernst Trading</td>
+            <td>Ronald Mendel</td>
+            <td>Australia</td></tr>
+
+        <tr><td>Ernst Trading</td>
+            <td>Ronald Mendel</td>
+            <td>Australia</td></tr>
+
+        <tr><td>Ernst Trading</td>
+            <td>Ronald Mendel</td>
+            <td>Australia</td></tr>
+
+        <tr><td>Ernst Trading</td>
+            <td>Ronald Mendel</td>
+            <td>Australia</td></tr>
+
+        <tr><td>Ernst Trading</td>
+            <td>Ronald Mendel</td>
+            <td>Australia</td></tr>
+       
+    </table>
+    <div>
+        <form action="#">
+            First name:<br>
+            <input type="text" id="fname"> <br>
+            Last name: <br>
+            <input type="text" id="lname"> <br><br>
+            <button id="sub-button">Submit</button>
+        </form>
+    </div>
+    <br>
+    
+</div>
+<div id="button-div">
+    <table class="scholar-class">
+        <tr>           
+        <td><input type="text" placeholder="Enter class"></td>
+        <td><input type="text" placeholder="Enter board"></td>
+        <td><input type="text" placeholder="Enter marks"></td>
+        <td><input type="text" placeholder="Enter division"></td>
+        <td><button class="plus-button">+</button></td>
+        <td><button class="min-button" >-</button></td>
+        </tr>
+        
+    </table>
+</div>
+<!-- For Git push -->
+    
+</body>
+</html>
